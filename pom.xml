@@ -3,4 +3,11 @@
   <groupId>com.keebraa.java</groupId>
   <artifactId>license</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.keebraa.java</groupId>
+  		<artifactId>keebraa-docs</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
