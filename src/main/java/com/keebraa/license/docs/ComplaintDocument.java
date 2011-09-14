@@ -1,16 +1,17 @@
 package com.keebraa.license.docs;
 
 import com.keebraa.docs.exceptions.DocumentHandlingException;
+import com.keebraa.docs.model.Document;
 
-public class ComplaintDocument extends AbstractLicenseDocument
+public class ComplaintDocument extends AbstractLicenseBasedDocument
 {
     private StringBuilder text;
     
     private static final String lineSeparatorKey = "line.separator";
 
-    public ComplaintDocument() throws DocumentHandlingException
+    public ComplaintDocument(Document document) throws DocumentHandlingException
     {
-        super();
+        super(document);
         text = new StringBuilder();
     }
 
