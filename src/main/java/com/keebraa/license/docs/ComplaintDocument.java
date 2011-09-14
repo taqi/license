@@ -1,7 +1,6 @@
 package com.keebraa.license.docs;
 
 import com.keebraa.docs.exceptions.DocumentHandlingException;
-import com.keebraa.docs.model.Document;
 
 public class ComplaintDocument extends AbstractLicenseBasedDocument
 {
@@ -9,7 +8,7 @@ public class ComplaintDocument extends AbstractLicenseBasedDocument
     
     private static final String lineSeparatorKey = "line.separator";
 
-    public ComplaintDocument(Document document) throws DocumentHandlingException
+    public ComplaintDocument(DisposalDocument document) throws DocumentHandlingException
     {
         super(document);
         text = new StringBuilder();
