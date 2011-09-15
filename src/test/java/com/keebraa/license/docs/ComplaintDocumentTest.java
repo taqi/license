@@ -10,17 +10,34 @@ import com.keebraa.license.docs.stubs.BaseDocumentStub;
 public class ComplaintDocumentTest
 {
     @Test
-    public void testSetText() throws Exception
+    public void testAddTextLineToEmptyText() throws Exception
     {
-
         ComplaintDocument sut = getComplaintDocument();
 
         assertEquals("", sut.getText());
 
-        sut.setText("some text");
+        sut.addTextLine("some text");
+        sut.addTextLine("some another text");
 
+        String expected = "some text" + System.getProperty("line.separator") + "some another text";
         assertNotNull(sut.getText());
-        assertEquals("some text", sut.getText());
+        assertEquals(expected, sut.getText());
+    }
+
+    @Test
+    public void testAddTextLineToFilledText() throws Exception
+    {
+        ComplaintDocument sut = getComplaintDocument();
+
+        assertEquals("", sut.getText());
+        sut.setText("filled");
+        sut.addTextLine("some text");
+        sut.addTextLine("some another text");
+
+        String expected = "filled" + System.getProperty("line.separator") + "some text"
+            + System.getProperty("line.separator") + "some another text";
+        assertNotNull(sut.getText());
+        assertEquals(expected, sut.getText());
     }
 
     @Test
@@ -38,33 +55,17 @@ public class ComplaintDocumentTest
     }
 
     @Test
-    public void testAddTextLineToEmptyText() throws Exception
+    public void testSetText() throws Exception
     {
+
         ComplaintDocument sut = getComplaintDocument();
 
         assertEquals("", sut.getText());
 
-        sut.addTextLine("some text");
-        sut.addTextLine("some another text");
+        sut.setText("some text");
 
-        String expected = "some text\nsome another text";
         assertNotNull(sut.getText());
-        assertEquals(expected, sut.getText());
-    }
-
-    @Test
-    public void testAddTextLineToFilledText() throws Exception
-    {
-        ComplaintDocument sut = getComplaintDocument();
-
-        assertEquals("", sut.getText());
-        sut.setText("filled");
-        sut.addTextLine("some text");
-        sut.addTextLine("some another text");
-
-        String expected = "filled\nsome text\nsome another text";
-        assertNotNull(sut.getText());
-        assertEquals(expected, sut.getText());
+        assertEquals("some text", sut.getText());
     }
 
     private ComplaintDocument getComplaintDocument() throws Exception
